@@ -1,0 +1,99 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-0: #f9df6d;
+  --color-1: #a0c35a;
+  --color-2: #6aafe6;
+  --color-3: #ba81c5;
+  --sidebar-bg: #1a1a2e;
+  --sidebar-text: #ccc;
+  --sidebar-border: #3a3a55;
+  --sidebar-hover: #2a2a45;
+  --a-text: #7c5295;
+  --body-bg: #f4f5f7;
+  --main-bg: #f4f5f7;
+  --card-bg: #f1f1f1;
+  --text-primary: #1a1a2e;
+  --text-secondary: #666;
+  --text-hint: #616161;
+  --tile-bg: #eef0f2;
+  --tile-border: #3d405b;
+  --tile-selected: #3d405b;
+  --tile-sel-text: #f1f1f1;
+  --btn-bg: #f1f1f1;
+  --btn-border: #333;
+  --btn-text: #333;
+  --btn-hover-bg: #333;
+  --btn-hover-text: #ffffff;
+  --mistake-empty: #818181;
+  --mistake-used: #e63946;
+  --overlay-bg: rgba(0, 0, 0, 0.65);
+  --input-border: #ddd;
+  --input-focus: #4a90d9;
+  --divider: #e0e0e0;
+  --code-bg: #f0f0f0;
+  --radius: 10px;
+}
+
+body.dark {
+  --a-text: #ccb2e5;
+  --body-bg: #0f0f1a;
+  --main-bg: #0f0f1a;
+  --card-bg: #1e1e30;
+  --text-primary: #e8e8f0;
+  --text-secondary: #999;
+  --text-hint: #a1a1a1;
+  --tile-bg: #2a2a40;
+  --tile-border: #7a7ea8;
+  --tile-selected: #5a5e88;
+  --tile-sel-text: #f1f1f1;
+  --btn-bg: #2a2a40;
+  --btn-border: #666;
+  --btn-text: #ddd;
+  --btn-hover-bg: #ddd;
+  --btn-hover-text: #1a1a2e;
+  --mistake-empty: #a1a1a1;
+  --overlay-bg: rgba(0, 0, 0, 0.8);
+  --input-border: #444;
+  --divider: #333;
+  --code-bg: #2a2a40;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--body-bg);
+  min-height: 100vh;
+  color: var(--text-primary);
+  transition: background 0.25s, color 0.25s;
+  font-weight: 400;
+}
+
+.app {
+  display: flex; min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 16px 24px;
+  min-width: 0;
+  background: var(--main-bg);
+  transition: background 0.25s;
+}
+
+a {
+  color: var(--a-text);
+}
+
+footer {
+  color: var(--sidebar-text);
+  text-align: center;
+  font-size: 12px;
+  margin-top: 12px;
+}

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Disallow: /public/embeddings.json
+Disallow: /public/terms.json

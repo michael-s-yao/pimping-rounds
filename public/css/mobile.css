@@ -1,0 +1,109 @@
+@media (max-width: 640px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 10px 12px 10px;
+    gap: 0;
+  }
+
+  .sidebar-icons {
+    margin-bottom: 8px;
+  }
+
+  .stats-block {
+    padding: 7px 10px 8px;
+    margin-bottom: 8px;
+  }
+
+  .stat-value {
+    font-size: 1rem;
+  }
+
+  .category-section {
+    flex: unset;
+    margin-bottom: 8px;
+  }
+
+  .sidebar-label {
+    display: none;
+  }
+
+  .category-list {
+    display: block;
+  }
+
+  .sidebar-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .shuffle-btn {
+    flex: 1;
+    min-width: 90px;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  .action-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 7px 8px;
+    font-size: 0.74rem;
+  }
+
+  .main {
+    padding: 16px 10px 20px;
+  }
+
+  .game-title {
+    font-size: 1.25rem;
+  }
+
+  .tile {
+    font-size: 0.7rem;
+    min-height: 52px;
+    padding: 8px 4px;
+  }
+
+  .grid {
+    gap: 6px;
+  }
+
+  .btn {
+    padding: 9px 16px;
+    font-size: 0.82rem;
+  }
+
+  .game-area {
+    max-width: 100%;
+  }
+
+  .guess-bar-wrap {
+    width: 60px;
+  }
+
+  .guess-term {
+    font-size: 0.8rem;
+  }
+
+  .guess-rank-text {
+    font-size: 0.72rem;
+    width: 40px;
+  }
+
+  #guessInput {
+    font-size: 0.85rem;
+  }
+
+  .result-card {
+    padding: 24px 18px 20px;
+  }
+
+  .result-stat-value {
+    font-size: 1.4rem;
+  }
+}

@@ -1,0 +1,12 @@
+/* TEAM */
+Creator & Developer: Michael Yao
+Site: https://www.michaelsyao.com
+GitHub: https://github.com/michael-s-yao
+
+/* THANKS */
+Inspired by the New York Times Wordle game
+
+/* SITE */
+Language: English
+Technology: HTML, CSS, JavaScript
+Hosted: GitHub Pages

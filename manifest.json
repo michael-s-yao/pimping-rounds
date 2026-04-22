@@ -1,0 +1,12 @@
+{
+  "name": "pimping rounds",
+  "short_name": "pimping rounds",
+  "description": "wordle but for med students on clerkships",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#6ca965",
+  "theme_color": "#1a1a2e",
+  "lang": "en-US",
+  "categories": ["games", "education", "medical"],
+  "icons": [{"src":"/android-chrome-192x192.png", "sizes":"192x192", "type":"image/png"}, {"src": "/android-chrome-512x512.png", "sizes":"512x512", "type":"image/png"}]
+}

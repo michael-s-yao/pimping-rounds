@@ -1,0 +1,4 @@
+Contact: https://github.com/michael-s-yao/clerkship-connections/issues
+Expires: 2027-04-22T00:00:00Z
+Preferred-Languages: en
+Canonical: https://pimpingrounds.com/.well-known/security.txt
