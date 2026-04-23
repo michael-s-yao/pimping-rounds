@@ -32,6 +32,10 @@
   }
 
   .category-list {
+    display: none;
+  }
+
+  .category-select {
     display: block;
   }
 

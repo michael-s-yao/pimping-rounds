@@ -26,6 +26,29 @@
     </script>
   </head>
   <body>
+    <div class="overlay" id="helpOverlay" style="display:none">
+      <div class="result-card">
+        <div class="result-title">how to play</div>
+        <div class="help-body">
+          <p>a secret medical diagnosis is chosen every day. guess it — no letter hints!</p>
+          <p>each guess is ranked by <strong>semantic similarity</strong> to the answer. rank <strong>#1</strong> means you nailed it.</p>
+          <div class="help-heat-legend">
+            <div class="help-heat-row"><span>🎯</span><span>bullseye — rank #1, that's the answer</span></div>
+            <div class="help-heat-row heat-5-text"><span>🔥</span><span>on fire — top 5%</span></div>
+            <div class="help-heat-row heat-4-text"><span>🌶️</span><span>scorching — top 15%</span></div>
+            <div class="help-heat-row heat-3-text"><span>😮</span><span>warm — top 35%</span></div>
+            <div class="help-heat-row heat-2-text"><span>😐</span><span>lukewarm — top 60%</span></div>
+            <div class="help-heat-row heat-1-text"><span>🥶</span><span>cold — top 80%</span></div>
+            <div class="help-heat-row heat-0-text"><span>❄️</span><span>freezing — bottom 20%</span></div>
+          </div>
+          <p>switch categories to focus on a specialty. a new puzzle resets each day.</p>
+        </div>
+        <div class="result-actions">
+          <button class="btn primary" onclick="toggleHelp()">got it</button>
+        </div>
+      </div>
+    </div>
+
     <div class="overlay" id="resultOverlay" style="display:none">
       <div class="result-card">
         <div class="result-emoji" id="resultEmoji"></div>
@@ -55,6 +78,13 @@
     <div class="app" id="app" style="display:none">
       <div class="sidebar">
         <div class="sidebar-icons">
+          <button class="icon-btn" id="helpBtn" onclick="toggleHelp()" title="How to play" aria-label="How to play">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </button>
           <button class="icon-btn" id="darkToggleBtn" onclick="toggleDark()" title="Toggle dark mode" aria-label="Toggle dark mode">
             <svg id="iconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -99,6 +129,7 @@
         </div>
         <div class="category-section">
           <div class="sidebar-label">Category</div>
+          <select id="categorySelect" class="category-select"></select>
           <div class="category-list" id="categoryList"></div>
         </div>
         <footer>
@@ -108,7 +139,7 @@
 
       <div class="main">
         <div class="game-title">pimping rounds</div>
-        <div class="game-subtitle"><em>this is more of a "read-my-mind" question, but...</em><br>like <a href="https://www.nytimes.com/games/wordle" target="_blank">wordle</a> but meant to put you in your place</div>
+        <div class="game-subtitle"><em>this is more of a "read-my-mind" question, but...</em><br>like <a href="https://semantle.com" target="_blank">semantic wordle</a> but meant to put you in your place<br><span onclick="toggleHelp()" id="instructions-span">how to play</span></div>
         <p id="message">&emsp;</p>
 
         <div class="game-area" id="gameArea">

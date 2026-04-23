@@ -138,7 +138,10 @@ function updateStatsDisplay() {
 
 function renderCategoryList() {
   const list = document.getElementById("categoryList");
+  const select = document.getElementById("categorySelect");
   list.innerHTML = "";
+  if (select)
+    select.innerHTML = "";
   Object.entries(CATEGORY_LABELS).forEach(([key, label]) => {
     const count = key === "all"
       ? allTerms.length
@@ -148,6 +151,13 @@ function renderCategoryList() {
     btn.textContent = `${label} (${count})`;
     btn.onclick = () => switchCategory(key);
     list.appendChild(btn);
+    if (select) {
+      const opt = document.createElement("option");
+      opt.value = key;
+      opt.textContent = `${label} (${count})`;
+      opt.selected = key === activeCategory;
+      select.appendChild(opt);
+    }
   });
 }
 
@@ -365,7 +375,8 @@ function submitGuess() {
   initFuse();
   renderGame();
 
-  if (solved) setTimeout(showResult, 900);
+  if (solved)
+    setTimeout(showResult, 900);
 }
 
 function giveUp() {
@@ -429,6 +440,11 @@ window.closeResult = function () {
   document.getElementById("resultOverlay").style.display = "none";
 };
 
+window.toggleHelp = function () {
+  const el = document.getElementById("helpOverlay");
+  el.style.display = el.style.display === "none" ? "flex" : "none";
+};
+
 window.toggleDark = function () {
   const dark = document.body.classList.toggle("dark");
   localStorage.setItem("darkMode", dark ? "1" : "0");
@@ -474,6 +490,10 @@ async function init() {
   submitBtn.addEventListener("click", submitGuess);
   if (giveUpBtn)
     giveUpBtn.addEventListener("click", giveUp);
+
+  const categorySelect = document.getElementById("categorySelect");
+  if (categorySelect)
+    categorySelect.addEventListener("change", e => switchCategory(e.target.value));
 
   if (solved && guesses.length > 0 && guesses[guesses.length - 1].rank === 1) {
     setTimeout(showResult, 400);

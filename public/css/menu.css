@@ -189,6 +189,7 @@
 }
 
 .category-select {
+  display: none;
   width: 100%;
   padding: 9px 12px;
   background: var(--sidebar-bg);

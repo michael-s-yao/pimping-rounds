@@ -87,8 +87,13 @@ body {
   transition: background 0.25s;
 }
 
-a {
+a, #instructions-span {
   color: var(--a-text);
+}
+
+#instructions-span {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 footer {
