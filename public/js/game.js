@@ -248,16 +248,23 @@ function initFuse() {
   fuse = new Fuse(available, {
     keys: ["term"],
     threshold: 0.35,
-    minMatchCharLength: 3,
+    minMatchCharLength: 1,
     ignoreLocation: true,
     includeScore: true,
   });
 }
 
+function getAllAvailableResults() {
+  const guessedSet = new Set(guesses.map(g => g.term));
+  return filteredTerms
+    .filter(t => !guessedSet.has(t.term))
+    .map(t => ({ item: t }));
+}
+
 function openAutocomplete(results) {
   const dropdown = document.getElementById("autocompleteList");
   dropdown.innerHTML = "";
-  const top = results.slice(0, 12);
+  const top = results;
   if (top.length === 0) {
     dropdown.classList.remove("open");
     return;
@@ -299,8 +306,10 @@ function onInputChange(e) {
   selectedTerm = null;
   document.getElementById("submitBtn").disabled = true;
 
-  if (query.length < 2) {
-    closeAutocomplete();
+  if (query.length === 0) {
+    fuseResults = getAllAvailableResults();
+    highlightedIdx = -1;
+    openAutocomplete(fuseResults);
     return;
   }
 
@@ -483,6 +492,15 @@ async function init() {
   const submitBtn = document.getElementById("submitBtn");
   const giveUpBtn = document.getElementById("giveUpBtn");
 
+  input.addEventListener("focus", () => {
+    if (!solved) {
+      fuseResults = input.value.trim().length === 0
+        ? getAllAvailableResults()
+        : fuse.search(input.value.trim());
+      highlightedIdx = -1;
+      openAutocomplete(fuseResults);
+    }
+  });
   input.addEventListener("input", onInputChange);
   input.addEventListener("keydown", onInputKeydown);
   input.addEventListener("blur", () => setTimeout(closeAutocomplete, 160));
